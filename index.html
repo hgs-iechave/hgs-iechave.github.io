@@ -5,7 +5,6 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-	<meta name="Referrer-Policy" content="no-referrer">
 	<title>Potree Viewer</title>
 
 	<link rel="stylesheet" type="text/css" href="./build/potree/potree.css">
@@ -67,6 +66,7 @@
 					"https://storage.sbg.cloud.ovh.net/v1/AUTH_63234f509d6048bca3c9fd7928720ca1/ppk-lidar/KE/LHD_FXX_0653_6862_PTS_O_LAMB93_IGN69.copc.laz"]
 
 		urls.forEach((url) => {
+			url = 'https://corsproxy.io/?' + encodeURIComponent(url);
 			var name = url.substring(url.lastIndexOf('/')+1);
 			Potree.loadPointCloud(url, name, function(e){
 				viewer.scene.addPointCloud(e.pointcloud);
